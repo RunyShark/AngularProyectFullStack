@@ -11,15 +11,15 @@
     <mat-nav-list>
       <a routerLink="./list" mat-list-item (click)="sidenav.toggle()">
         <mat-icon mat-list-icon>label</mat-icon>
-        <span>Listado de heros</span>
+        <span>Lista de ideas</span>
       </a>
-      <a routerLink="./add" mat-list-item (click)="sidenav.toggle()">
+      <a routerLink="./create" mat-list-item (click)="sidenav.toggle()">
         <mat-icon mat-list-icon>add</mat-icon>
-        <span>añadir heroe</span>
+        <span>Añadir nueva idea</span>
       </a>
-      <a routerLink="./search" mat-list-item (click)="sidenav.toggle()">
-        <mat-icon mat-list-icon>search</mat-icon>
-        <span>Buscar</span>
+      <a routerLink="./update/:id" mat-list-item (click)="sidenav.toggle()">
+        <mat-icon mat-list-icon>mode_edit</mat-icon>
+        <span>Editar mis publicaciones</span>
       </a>
     </mat-nav-list>
   </mat-sidenav>
@@ -27,10 +27,15 @@
     <button mat-icon-button (click)="sidenav.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
+    <img
+      src="https://ezassi.com/wp-content/uploads/2018/02/eEzassi-Web-Logo-1.png"
+      alt="dasd"
+      style="height: 80%; width: auto; margin-left: 20px"
+    />
     <span class="end"></span>
     <mat-form-field class="example-full-width">
       <mat-label style="font-size: 15px">search</mat-label>
-      <input matInput #message />
+      <input matInput #message type="text" />
       <mat-hint align="start"> </mat-hint>
       <mat-hint align="end"></mat-hint>
     </mat-form-field>
@@ -44,10 +49,16 @@
       <mat-icon mat-list-icon>notifications</mat-icon>
     </button>
     <button mat-button>
-      <mat-icon mat-list-icon>person</mat-icon>
+      <a routerLink="./user" mat-list-item
+        ><mat-icon mat-list-icon>person</mat-icon>
+      </a>
     </button>
   </mat-toolbar>
   <div class="conteiner">
     <router-outlet></router-outlet>
   </div>
 </mat-sidenav-container>
+<!-- <a routerLink="./delete" mat-list-item (click)="sidenav.toggle()">
+  <mat-icon mat-list-icon>delete</mat-icon>
+  <span>Eliminar</span>
+</a> -->

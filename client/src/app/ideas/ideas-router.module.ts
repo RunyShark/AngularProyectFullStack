@@ -6,6 +6,7 @@ import { AgregarComponent } from './pages/agregar/agregar.component';
 import { ListComponent } from './pages/list/list.component';
 import { BuscarComponent } from './pages/buscar/buscar.component';
 import { EliminarComponent } from './pages/eliminar/eliminar.component';
+import { UserComponent } from './pages/user/user.component';
 
 const routes: Routes = [
   {
@@ -29,7 +30,11 @@ const routes: Routes = [
         component: BuscarComponent,
       },
       {
-        path: ':id',
+        path: 'user',
+        component: UserComponent,
+      },
+      {
+        path: 'delete',
         component: EliminarComponent,
       },
       {
