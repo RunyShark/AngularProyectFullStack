@@ -7,6 +7,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ListComponent } from './pages/list/list.component';
 import { EliminarComponent } from './pages/eliminar/eliminar.component';
 import { MaterialModule } from '../material/material.module';
+import { IdeasRouterModule } from './ideas-router.module';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,6 @@ import { MaterialModule } from '../material/material.module';
     ListComponent,
     EliminarComponent,
   ],
-  imports: [CommonModule, MaterialModule],
+  imports: [CommonModule, MaterialModule, IdeasRouterModule],
 })
 export class IdeasModule {}
