@@ -1,1 +1,72 @@
-<h1>Perfil de usuario</h1>
+<br />
+<div
+  fxLayout="row"
+  fxLayoutGap="60px"
+  fxFlex.xs="column"
+  style="margin-left: 25px; margin-top: 25px"
+>
+  <div fxFlex="50" fxLayout="column" fxFlex.xs="column">
+    <form [formGroup]="crudForm" (ngSubmit)="newIdea()" autocomplete="off">
+      <div class="wrap-input100 m-b-23">
+        <span class="label-input100">Nombre</span>
+        <input
+          class="input100"
+          type="text"
+          name="name"
+          formControlName="name"
+          placeholder="Nombre"
+        />
+        <span class="focus-input100"></span>
+      </div>
+      <div class="wrap-input100 m-b-23">
+        <span class="label-input100">email</span>
+        <input
+          class="input100"
+          type="email"
+          name="email"
+          formControlName="email"
+          placeholder="email"
+        />
+
+        <span class="focus-input100"></span>
+      </div>
+      <div class="wrap-input100 m-b-23">
+        <span class="label-input100">imagen</span>
+        <input
+          class="input100"
+          type="text"
+          name="image"
+          formControlName="image"
+          placeholder="image"
+        />
+        <span class="focus-input100"></span>
+      </div>
+
+      <button
+        type="submit"
+        class="login100-form-btn"
+        [disabled]="crudForm.invalid"
+        mat-raised-button
+        color="primary"
+      >
+        <mat-icon>edit</mat-icon>
+        Editar
+      </button>
+      <!-- <button mat-raised-button color="primary" [disabled]="loginForm.invalid">
+     
+        Guardar
+      </button> -->
+    </form>
+  </div>
+
+  <div fxFlex="50">
+    <img
+      fxFlex.xs="column"
+      style="border-radius: 100px"
+      src="
+        https://us.123rf.com/450wm/ahasoft2000/ahasoft20001911/ahasoft2000191116267/133584879-nada-icono-de-trama-el-s%C3%ADmbolo-flat-nothing-est%C3%A1-aislado-en-un-fondo-blanco-.jpg?ver=6
+      "
+      alt=""
+    />
+  </div>
+</div>

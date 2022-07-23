@@ -9,7 +9,8 @@ import { EliminarComponent } from './pages/eliminar/eliminar.component';
 import { MaterialModule } from '../material/material.module';
 import { IdeasRouterModule } from './ideas-router.module';
 import { UserComponent } from './pages/user/user.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { FlexLayoutModule } from '@angular/flex-layout';
 @NgModule({
   declarations: [
     AgregarComponent,
@@ -20,6 +21,12 @@ import { UserComponent } from './pages/user/user.component';
     EliminarComponent,
     UserComponent,
   ],
-  imports: [CommonModule, MaterialModule, IdeasRouterModule],
+  imports: [
+    CommonModule,
+    MaterialModule,
+    IdeasRouterModule,
+    ReactiveFormsModule,
+    FlexLayoutModule,
+  ],
 })
 export class IdeasModule {}
