@@ -1,7 +1,7 @@
 <form
   class="login100-form"
   autocomplete="off"
-  [formGroup]="autrhForm"
+  [formGroup]="loginForm"
   (ngSubmit)="login()"
 >
   <span class="login100-form-title p-b-49"> Login </span>
@@ -33,7 +33,13 @@
   <div class="container-login100-form-btn">
     <div class="wrap-login100-form-btn">
       <div class="login100-form-bgbtn"></div>
-      <button type="submit" class="login100-form-btn">Login</button>
+      <button
+        type="submit"
+        class="login100-form-btn"
+        [disabled]="loginForm.invalid"
+      >
+        Login
+      </button>
     </div>
   </div>
 

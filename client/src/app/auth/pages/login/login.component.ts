@@ -7,14 +7,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-  autrhForm: FormGroup = this.fb.group({
+  loginForm: FormGroup = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(6)]],
   });
   constructor(private fb: FormBuilder) {}
 
   login() {
-    console.log(this.autrhForm.value);
-    console.log(this.autrhForm.valid);
+    console.log(this.loginForm.value);
+    console.log(this.loginForm.valid);
   }
 }
