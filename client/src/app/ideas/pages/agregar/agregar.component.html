@@ -1,72 +1,49 @@
-<mat-divider></mat-divider>
-<br />
-<div
-  fxLayout="row"
-  fxLayoutGap="60px"
-  fxFlex.xs="column"
-  style="margin-left: 25px; margin-top: 25px"
->
-  <div fxFlex="50" fxLayout="column" fxFlex.xs="column">
-    <form [formGroup]="crudForm" (ngSubmit)="newIdea()" autocomplete="off">
-      <div class="wrap-input100 m-b-23">
-        <span class="label-input100">titulo</span>
-        <input
-          class="input100"
-          type="text"
-          name="title"
-          formControlName="title"
-          placeholder="Ingrese su un titulo"
-        />
-        <span class="focus-input100"></span>
-      </div>
-      <div class="wrap-input100 m-b-23">
-        <span class="label-input100">Descripcion</span>
-        <textarea
-          class="input100"
-          type="text"
-          name="description"
-          formControlName="description"
-          placeholder="Ingrese su un descripcion"
-        ></textarea>
+<div fxLayout="row" fxLayoutGap="40px" style="margin: 50px">
+  <div fxFlex="50" fxLayout="column">
+    <mat-form-field fxFlex="100">
+      <mat-label>Titulo</mat-label>
+      <input matInput type="text" required [(ngModel)]="ideasInput.title" />
+    </mat-form-field>
+    <mat-form-field fxFlex="100">
+      <mat-label>Imagen</mat-label>
 
-        <span class="focus-input100"></span>
-      </div>
-      <div class="wrap-input100 m-b-23">
-        <span class="label-input100">imagen</span>
-        <input
-          class="input100"
-          type="text"
-          name="image"
-          formControlName="image"
-          placeholder="Ingrese una image"
-        />
-        <span class="focus-input100"></span>
-      </div>
-
-      <button
-        type="submit"
-        class="login100-form-btn"
-        [disabled]="crudForm.invalid"
-        mat-raised-button
-        color="primary"
-      >
+      <input matInput type="text" required [(ngModel)]="ideasInput.image" />
+    </mat-form-field>
+    <mat-form-field fxFlex="100">
+      <mat-label>Description</mat-label>
+      <textarea
+        matInput
+        type="text"
+        requiredname=""
+        id=""
+        cols="30"
+        rows="10"
+        [(ngModel)]="ideasInput.description"
+      ></textarea>
+    </mat-form-field>
+    <br />
+    <div fxLayout>
+      <button mat-raised-button color="primary" (click)="newIdea()">
         <mat-icon>edit</mat-icon>
         Guardar
       </button>
-      <!-- <button mat-raised-button color="primary" [disabled]="loginForm.invalid">
-     
-        Guardar
-      </button> -->
-    </form>
+      <span class="end"></span>
+      <button
+        mat-raised-button
+        color="warn"
+        *ngIf="ideasInput.id"
+        (click)="deleteIDea()"
+      >
+        <mat-icon>delete</mat-icon>
+        Borrar
+      </button>
+    </div>
   </div>
 
   <div fxFlex="50">
     <img
-      fxFlex.xs="column"
-      style="border-radius: 100px"
-      src="
-        https://us.123rf.com/450wm/ahasoft2000/ahasoft20001911/ahasoft2000191116267/133584879-nada-icono-de-trama-el-s%C3%ADmbolo-flat-nothing-est%C3%A1-aislado-en-un-fondo-blanco-.jpg?ver=6
-      "
+      style="border-radius: 10px"
+      src="https://res.cloudinary.com/runyshark1/image/upload/v1658592180/journal/Captddddura_tqjeke.jpg"
       alt=""
     />
   </div>

@@ -21,11 +21,10 @@
           <mat-card-actions fxLayout="row">
             <button mat-button>
               assingess
-              <a routerLink="./user" mat-list-item> assingess </a>
+              <a> assingess </a>
             </button>
-            <button mat-button>
+            <button mat-button (click)="redirecUpdate(idea.id)">
               Workflow <mat-icon>edit</mat-icon>
-              <a routerLink="./user" mat-list-item> Idea Review/PLM II</a>
             </button>
             Review
             <button
@@ -35,6 +34,7 @@
                 color: white;
                 border-radius: 100px;
               "
+              (click)="redirecReviw(idea.id)"
             >
               ---
             </button>

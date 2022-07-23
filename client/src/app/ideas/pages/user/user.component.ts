@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-agregar',
   templateUrl: './user.component.html',
@@ -11,9 +11,13 @@ export class UserComponent {
     email: ['', Validators.required],
     image: '',
   });
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private router: Router) {}
   newIdea() {
     console.log(this.crudForm.value);
     console.log(this.crudForm.valid);
+  }
+
+  logout() {
+    this.router.navigateByUrl('/auth');
   }
 }

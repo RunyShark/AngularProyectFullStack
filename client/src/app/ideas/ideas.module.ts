@@ -11,6 +11,8 @@ import { IdeasRouterModule } from './ideas-router.module';
 import { UserComponent } from './pages/user/user.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ReviewComponent } from './pages/review/review.component';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AgregarComponent,
@@ -20,6 +22,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     ListComponent,
     EliminarComponent,
     UserComponent,
+    ReviewComponent,
   ],
   imports: [
     CommonModule,
@@ -27,6 +30,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     IdeasRouterModule,
     ReactiveFormsModule,
     FlexLayoutModule,
+    FormsModule,
   ],
 })
 export class IdeasModule {}

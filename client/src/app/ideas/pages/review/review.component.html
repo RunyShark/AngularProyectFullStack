@@ -8,7 +8,7 @@
   <div fxFlex="50" fxLayout="column" fxFlex.xs="column">
     <form [formGroup]="crudForm" (ngSubmit)="newIdea()" autocomplete="off">
       <div class="wrap-input100 m-b-23">
-        <span class="label-input100">Nombre</span>
+        <span class="label-input100">Nombre de quien deja la reviw</span>
         <input
           class="input100"
           type="text"
@@ -18,26 +18,15 @@
         />
         <span class="focus-input100"></span>
       </div>
-      <div class="wrap-input100 m-b-23">
-        <span class="label-input100">email</span>
-        <input
-          class="input100"
-          type="email"
-          name="email"
-          formControlName="email"
-          placeholder="email"
-        />
 
-        <span class="focus-input100"></span>
-      </div>
       <div class="wrap-input100 m-b-23">
-        <span class="label-input100">imagen</span>
+        <span class="label-input100">Elige una puntuacion del 1 al 5</span>
         <input
           class="input100"
           type="text"
-          name="image"
-          formControlName="image"
-          placeholder="image"
+          name="score"
+          formControlName="score"
+          placeholder="Elige una puntuacion del 1 al 5"
         />
         <span class="focus-input100"></span>
       </div>
@@ -49,24 +38,10 @@
         mat-raised-button
         color="primary"
       >
-        <mat-icon>edit</mat-icon>
-        Editar
+        <mat-icon>send</mat-icon>
+        enviar
       </button>
-
-      <!-- <button mat-raised-button color="primary" [disabled]="loginForm.invalid">
-     
-        Guardar
-      </button> -->
     </form>
-    <button
-      mat-raised-button
-      color="primary"
-      style="margin-top: 30px"
-      (click)="logout()"
-    >
-      <mat-icon>logout</mat-icon>
-      logout
-    </button>
   </div>
 
   <div fxFlex="50">

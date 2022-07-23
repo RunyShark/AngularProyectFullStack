@@ -3,6 +3,10 @@ export interface IdeaRes {
   msg: string;
   newOIdea: NewOIdea;
 }
+export interface Delete {
+  Error: boolean;
+  msg: string;
+}
 
 export interface NewOIdea {
   title: string;
@@ -26,6 +30,46 @@ export interface Result {
   id: number;
   image: string;
   creationDate: Date;
+  title: string;
+  description: string;
+}
+
+export interface Update {
+  Error: boolean;
+  msg: string;
+  ideaUpdate: IdeaUpdate;
+}
+
+export interface IdeaUpdate {
+  id: number;
+  image: string;
+  creationDate: Date;
+  title: string;
+  description: string;
+}
+export interface Ediet {
+  image: string;
+  title: string;
+  description: string;
+}
+export interface IdeasByID {
+  Error: boolean;
+  msg: string;
+  Result: Result;
+}
+
+export interface Result {
+  id: number;
+  image: string;
+  creationDate: Date;
+  title: string;
+  description: string;
+}
+
+export interface NewRess {
+  id?: number;
+  image: string;
+  creationDate?: Date;
   title: string;
   description: string;
 }
