@@ -66,7 +66,14 @@ const loginUser = async (req = request, res = response) => {
 };
 const reNewToken = async (req = request, res = response) => {
   try {
-    res.send("Hola muendo soy reNewToken");
+    const { uid, name } = req;
+    const data = {
+      id: uid,
+      name,
+    };
+
+    const token = generarJWT(data);
+    res.json({ msg: "ok", uid, name, token });
   } catch (error) {
     console.log(error);
     res.status(500).json(

@@ -1,31 +1,28 @@
 const jwt = require("jsonwebtoken");
-const { User } = require("../db/mysql");
 
 const checkAuth = async (req, res, next) => {
-  let token;
-  if (
-    req.headers.authorization &&
-    req.headers.authorization.startsWith("Bearer")
-  ) {
-    try {
-      token = req.headers.authorization.split(" ")[1];
+  const token = req.header("x-token");
 
-      const decoded = jwt.verify(token, process.env.JWT_SECRET);
-      req.registro = await User.findByPk(decoded.id, {
-        attributes: ["id"],
-      });
-
-      return next();
-    } catch (error) {
-      const errodr = new Error("Tonken invalido");
-      res.status(403).json({ msg: errodr.message });
-      next();
-    }
-  }
+  console.log(token);
   if (!token) {
-    const error = new Error("Tonken invalido o inexistente");
-    return res.status(403).json({ msg: error.message });
+    return res.status(401).json({
+      ok: false,
+      msg: "No hay token en la petición",
+    });
   }
+
+  try {
+    const { id, name } = jwt.verify(token, process.env.JWT_SECRET);
+
+    req.uid = id;
+    req.name = name;
+  } catch (error) {
+    return res.status(401).json({
+      ok: false,
+      msg: "Token no válido",
+    });
+  }
+
   next();
 };
 

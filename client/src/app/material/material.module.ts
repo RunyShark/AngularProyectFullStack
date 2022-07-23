@@ -6,8 +6,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatInputModule } from '@angular/material/input';
+import { MatBadgeModule } from '@angular/material/badge';
 @NgModule({
   exports: [
+    MatBadgeModule,
     MatSidenavModule,
     MatListModule,
     MatToolbarModule,

@@ -5,6 +5,7 @@ const generarJWT = (user) => {
   return jwt.sign(
     {
       id: user.id,
+      name: user.name,
     },
     JWT_SECRET,
     {
