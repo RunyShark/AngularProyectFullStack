@@ -5,12 +5,11 @@ const { getIdea, updateIdea, deleteIdea, postIdea } = require("../controllers");
 const { existeTitle, existIdea } = require("../helpers");
 const route = Router();
 
-route.get("/", [checkAuth], getIdea);
+route.get("/", getIdea);
 
 route.put(
   "/:id",
   [
-    checkAuth,
     check("id", "El id es un campo obligatorio para poder editar")
       .not()
       .isEmpty(),
@@ -23,7 +22,6 @@ route.put(
 route.delete(
   "/:id",
   [
-    checkAuth,
     check("id", "El id es un campo obligatorio para poder editar")
       .not()
       .isEmpty(),

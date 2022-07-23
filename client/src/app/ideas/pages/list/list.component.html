@@ -1,1 +1,71 @@
-<p>list works!</p>
+<mat-divider></mat-divider>
+<br />
+
+<div fxLayout="column" style="margin: 100px" fxLayoutGap="50">
+  <div *ngFor="let idea of ideas">
+    <mat-card fxLayout="row">
+      <div>
+        <mat-card-header>
+          <button mat-button color="primary">
+            <mat-icon> library_books </mat-icon>
+          </button>
+        </mat-card-header>
+        <img
+          mat-card-image
+          src="
+                https://res.cloudinary.com/runyshark1/image/upload/v1658592180/journal/Captddddura_tqjeke.jpg
+              "
+          alt=""
+        />
+        <div>
+          <mat-card-actions fxLayout="row">
+            <button mat-button>
+              assingess
+              <a routerLink="./user" mat-list-item> assingess </a>
+            </button>
+            <button mat-button>
+              Workflow <mat-icon>edit</mat-icon>
+              <a routerLink="./user" mat-list-item> Idea Review/PLM II</a>
+            </button>
+            Review
+            <button
+              mat-button
+              style="
+                background-color: #ff9800;
+                color: white;
+                border-radius: 100px;
+              "
+            >
+              ---
+            </button>
+          </mat-card-actions>
+        </div>
+      </div>
+      <div>
+        <mat-card-subtitle>
+          <p>
+            Posted <span style="color: rgb(69, 69, 221)">Usuari</span> strellas
+          </p>
+          <p><mat-icon>featured_play_list</mat-icon>{{ idea.creationDate }}</p>
+        </mat-card-subtitle>
+      </div>
+      <div style="margin: 100px">
+        <mat-card-content>
+          <h2>{{ idea.title }}</h2>
+          <p><span>descripcion</span> {{ idea.description }}</p>
+        </mat-card-content>
+      </div>
+    </mat-card>
+  </div>
+</div>
+<!-- <p>Assignees</p>
+            <a href="#">idea Review/PLM II</a>
+            <button mat-button color="info">
+              Workflow<mat-icon>edit</mat-icon>
+              <a href="#">idea Review/PLM II</a>
+            </button>
+            <a href="#">idea Review/PLM II</a>
+
+            <p>Review Score</p>
+            <button mat-button color="warn">---</button>
+            <a routerLink="./update/:id">idea Review/PLM II</a> -->
