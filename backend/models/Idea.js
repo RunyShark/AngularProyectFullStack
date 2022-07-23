@@ -16,6 +16,7 @@ module.exports = (sequelize) => {
       },
       creationDate: {
         type: DataTypes.DATE,
+        defaultValue: new Date().getTime(),
       },
       title: {
         type: DataTypes.STRING,

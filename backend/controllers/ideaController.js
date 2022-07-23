@@ -64,11 +64,12 @@ const deleteIdea = async (req = request, res = response) => {
   }
 };
 const postIdea = async (req = request, res = response) => {
+  console.log(req.body);
   try {
     const idea = await new Idea(req.body);
     idea.save();
 
-    const { title, creationDate, description } = idea;
+    const { title, creationDate, description, image } = idea;
 
     res.status(201).json({
       Error: false,
@@ -77,6 +78,7 @@ const postIdea = async (req = request, res = response) => {
         title,
         creationDate,
         description,
+        image,
       },
     });
   } catch (error) {

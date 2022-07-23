@@ -23,6 +23,7 @@ module.exports = (sequelize) => {
       },
       image: {
         type: DataTypes.STRING,
+        defaultValue: null,
       },
       score: {
         type: DataTypes.INTEGER,

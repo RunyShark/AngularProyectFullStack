@@ -37,9 +37,8 @@ route.delete(
 route.post(
   "/",
   [
-    checkAuth,
     check("title").custom(existeTitle),
-    check("creationDate", "La fecha es un campo obligatorio").not().isEmpty(),
+
     check("title", "Es un campo obligaroio el title").not().isEmpty(),
     check("title", "el titulo debe de tener un largo mayor a 3").isLength({
       min: 3,

@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import {} from '../../interface/ideas.interface';
+import { IdeasService } from '../../service/ideas.service';
 /// Validators
+
 @Component({
   selector: 'app-agregar',
   templateUrl: './agregar.component.html',
@@ -12,9 +15,10 @@ export class AgregarComponent {
     description: ['', [Validators.required, Validators.minLength(10)]],
     image: '',
   });
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private idea: IdeasService) {}
   newIdea() {
-    console.log(this.crudForm.value);
-    console.log(this.crudForm.valid);
+    this.idea
+      .postIdea(this.crudForm.value)
+      .subscribe((res) => console.log(res));
   }
 }
