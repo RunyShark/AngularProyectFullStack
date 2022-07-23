@@ -32,35 +32,45 @@ export class AgregarComponent implements OnInit {
     if (this.ideasInput.title.trim().length === 2) return;
     if (this.ideasInput.description.trim().length === 9) return;
     if (this.ideasInput.id) {
-      this.idea
-        .putIdea(this.ideasInput)
-        .subscribe((idea) => console.log('data update', idea));
-    } else {
-      this.idea.postIdea(this.ideasInput).subscribe((res) => {
-        console.log(res);
-        Swal.fire({
-          icon: 'success',
-          title: 'Se agrego Correctamente',
-          showConfirmButton: false,
-          timer: 1500,
-        });
+      this.idea.putIdea(this.ideasInput).subscribe((ok) => {
+        if (ok.Error) {
+          console.log(ok.msg);
+          Swal.fire('Error', ok.msg, 'error');
+          this.router.navigateByUrl(`/auth`);
+          return;
+        }
+        Swal.fire('Edicion', 'Todo salio bien', 'success');
         setTimeout(() => {
           this.router.navigateByUrl(`/home`);
-        }, 30);
+        }, 1000);
+      });
+    } else {
+      this.idea.postIdea(this.ideasInput).subscribe((ok) => {
+        if (ok.Error) {
+          console.log(ok.msg);
+          Swal.fire('Error', ok.msg, 'error');
+          this.router.navigateByUrl(`/auth`);
+          return;
+        }
+        Swal.fire('success', 'Se agrego correctamente', 'success');
+        setTimeout(() => {
+          this.router.navigateByUrl(`/home`);
+        }, 1000);
       });
     }
   }
   deleteIDea() {
-    this.idea.deleteIdea(this.ideasInput).subscribe((res) => {
-      Swal.fire({
-        icon: 'success',
-        title: 'Se elimino correctamente',
-        showConfirmButton: false,
-        timer: 1500,
-      });
+    this.idea.deleteIdea(this.ideasInput).subscribe((ok) => {
+      if (ok.Error) {
+        console.log(ok.msg);
+        Swal.fire('Error', ok.msg, 'error');
+        this.router.navigateByUrl(`/auth`);
+        return;
+      }
+      Swal.fire('Eliminado', 'Se agrego elimino correctamente', 'success');
       setTimeout(() => {
         this.router.navigateByUrl(`/home`);
-      }, 30);
+      }, 1000);
     });
   }
 }

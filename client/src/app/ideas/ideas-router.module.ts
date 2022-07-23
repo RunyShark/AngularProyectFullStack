@@ -9,11 +9,14 @@ import { EliminarComponent } from './pages/eliminar/eliminar.component';
 import { UserComponent } from './pages/user/user.component';
 import { IdeaDetailComponent } from './pages/idea-detail/idea-detail.component';
 import { ReviewComponent } from './pages/review/review.component';
+import { ValidarTokenGuard } from '../guards/validar-token.guard';
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
+    canActivate: [ValidarTokenGuard],
+    canLoad: [ValidarTokenGuard],
     children: [
       {
         path: 'list',

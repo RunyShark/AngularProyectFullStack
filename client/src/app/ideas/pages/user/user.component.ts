@@ -18,6 +18,8 @@ export class UserComponent {
   }
 
   logout() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
     this.router.navigateByUrl('/auth');
   }
 }
